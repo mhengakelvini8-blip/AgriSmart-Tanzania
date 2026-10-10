@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Farmer Profile - AgriSmart Tanzania</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="dashboard-header">
+
+        <div class="logo">
+            🌱 AgriSmart Tanzania
+        </div>
+
+        <div class="lang-switch">
+            <button type="button" data-lang-btn="en">EN</button>
+            <button type="button" data-lang-btn="sw">SW</button>
+        </div>
+
+        <a href="dashboard.html" class="back-button" data-i18n="back_to_dashboard">
+            ← Dashboard
+        </a>
+
+    </header>
+
+
+    <!-- Profile Container -->
+    <main class="profile-container">
+
+        <section class="profile-card">
+
+            <h1><span data-i18n="profile_heading">👤 Farmer Profile</span></h1>
+
+            <p data-i18n="profile_desc">Manage your farming account information.</p>
+
+
+            <form id="profileForm">
+
+                <!-- Farm Name -->
+                <label for="profileFarmName" data-i18n="label_farmname">
+                    Farm Name / Username
+                </label>
+
+                <input
+                    type="text"
+                    id="profileFarmName"
+                    required
+                >
+
+
+                <!-- Region -->
+                <label for="profileRegion" data-i18n="dash_region_label">
+                    Region
+                </label>
+
+                <select id="profileRegion" data-region-select required>
+                </select>
+
+
+                <!-- Email -->
+                <label for="profileEmail" data-i18n="label_email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="profileEmail"
+                    required
+                >
+
+                <small class="password-hint" data-i18n="email_hint_profile">
+                    Used for account recovery (forgot password).
+                </small>
+
+
+                <!-- New Password -->
+                <label for="profilePassword" data-i18n="label_new_password_optional">
+                    New Password (Optional)
+                </label>
+
+                <input
+                    type="password"
+                    id="profilePassword"
+                    data-i18n-placeholder="placeholder_keep_password"
+                    placeholder="Leave blank to keep current password"
+                >
+
+
+                <button type="submit" data-i18n="btn_save_changes">
+                    💾 Save Changes
+                </button>
+
+            </form>
+
+
+            <p id="profileMessage"></p>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/regions.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

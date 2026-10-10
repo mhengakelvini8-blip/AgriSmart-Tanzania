@@ -1,0 +1,16 @@
+# Backend
+backend/node_modules/
+backend/.env
+backend/tests/*.sqlite*
+
+# Database (real data — never commit this)
+data/agrismart.sqlite
+data/agrismart.sqlite-shm
+data/agrismart.sqlite-wal
+
+# OS / editor
+.DS_Store
+*.log
+
+# Never publish legacy plaintext account records
+data/admin-users.json

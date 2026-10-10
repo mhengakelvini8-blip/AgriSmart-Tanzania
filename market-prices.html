@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Market Prices - AgriSmart Tanzania</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header class="main-header">
+
+    <div class="logo">
+        🌱 AgriSmart Tanzania
+    </div>
+
+    <button class="menu-toggle" id="menuToggle">
+        ☰
+    </button>
+
+    <nav id="mainNav">
+        <a href="dashboard.html" data-i18n="nav_dashboard">Dashboard</a>
+        <a href="soil-analysis.html" data-i18n="nav_soil">Soil Analysis</a>
+        <a href="crop-recommendations.html" data-i18n="nav_crops">Crop Recommendations</a>
+        <a href="market-prices.html" class="active" data-i18n="nav_market">Market Prices</a>
+        <a href="profile.html" data-i18n="nav_profile">Profile</a>
+        <a href="#" id="logoutButton" data-i18n="nav_logout">Logout</a>
+        <span class="lang-switch">
+            <button type="button" data-lang-btn="en">EN</button>
+            <button type="button" data-lang-btn="sw">SW</button>
+        </span>
+    </nav>
+
+</header>
+
+
+<main class="page-container">
+
+    <!-- PAGE INTRODUCTION -->
+    <section class="page-intro">
+
+        <h1 data-i18n="market_page_title">🌾 Agricultural Market Prices</h1>
+
+        <p data-i18n="market_page_desc">
+            Check current agricultural market prices to help you
+            make better decisions about where and when to sell your crops.
+        </p>
+
+    </section>
+
+
+    <!-- MARKET CONTROLS -->
+    <section class="market-controls">
+
+        <div class="control-group">
+
+            <label for="marketRegion" data-i18n="label_select_region">
+                Select Region
+            </label>
+
+            <select id="marketRegion" data-region-select="filter">
+            </select>
+
+        </div>
+
+
+        <div class="control-group">
+
+            <label for="cropSearch" data-i18n="label_search_crop">
+                Search Crop
+            </label>
+
+            <input
+                type="text"
+                id="cropSearch"
+                data-i18n-placeholder="placeholder_search_crop"
+                placeholder="e.g. Maize, Rice, Beans"
+            >
+
+        </div>
+
+
+        <div class="control-group">
+
+            <label for="sortMarketPrices" data-i18n="label_sort_price">
+                Sort Price
+            </label>
+
+            <select id="sortMarketPrices">
+
+                <option value="" data-i18n="sort_default">
+                    Default
+                </option>
+
+                <option value="low" data-i18n="sort_low">
+                    Lowest Price
+                </option>
+
+                <option value="high" data-i18n="sort_high">
+                    Highest Price
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="market-buttons">
+
+            <button id="searchMarketButton" class="primary-button" data-i18n="btn_search">
+                🔍 Search
+            </button>
+
+            <button id="refreshMarketButton" class="secondary-button" data-i18n="btn_refresh">
+                🔄 Refresh
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- MARKET RESULTS -->
+    <section class="market-section">
+
+        <div class="section-heading">
+
+            <h2 data-i18n="market_available_title">Available Market Prices</h2>
+
+            <p data-i18n="market_available_desc">
+                Prices are displayed according to the available market data.
+            </p>
+
+        </div>
+
+
+        <div id="marketResults" class="market-results">
+
+            <p class="loading-message">
+                Loading market prices...
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- INFORMATION -->
+    <section class="market-information">
+
+        <div class="info-card">
+
+            <h3 data-i18n="market_info1_title">💡 Why Check Market Prices?</h3>
+
+            <p data-i18n="market_info1_desc">
+                Market information can help farmers compare prices
+                between regions and make better selling decisions.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <h3 data-i18n="market_info2_title">📊 Compare Markets</h3>
+
+            <p data-i18n="market_info2_desc">
+                Use the region filter and crop search to compare
+                available prices.
+            </p>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <h3 data-i18n="market_info3_title">🔄 Keep Information Updated</h3>
+
+            <p data-i18n="market_info3_desc">
+                Market prices can change frequently. Always check
+                the latest available information before making
+                important selling decisions.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer class="main-footer">
+
+    <p data-i18n="footer_text">
+        © 2026 AgriSmart Tanzania. All rights reserved.
+    </p>
+
+    <p data-i18n="footer_tagline_market">
+        Agricultural information and digital farming services.
+    </p>
+
+</footer>
+
+
+<script src="js/regions.js"></script>
+<script src="js/language.js"></script>
+<script src="js/script.js"></script>
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "crop": "Rice",
+    "price": 1950,
+    "unit": "per kg",
+    "region": "Mwanza",
+    "market": "Mwanza Market",
+    "updated": "2026-09-20"
+  },
+  {
+    "id": 2,
+    "crop": "Potatoes",
+    "price": 1000,
+    "unit": "per kg",
+    "region": "Njombe",
+    "market": "Njombe Market",
+    "updated": "2026-09-20"
+  },
+  {
+    "id": 3,
+    "crop": "Tomatoes",
+    "price": 1435,
+    "unit": "per kg",
+    "region": "Njombe",
+    "market": "Njombe Market",
+    "updated": "2026-09-22"
+  },
+  {
+    "id": 4,
+    "crop": "Maize",
+    "price": 1245,
+    "unit": "per kg",
+    "region": "Geita",
+    "market": "Geita Market",
+    "updated": "2026-09-22"
+  },
+  {
+    "id": 5,
+    "crop": "Cassava",
+    "price": 2545,
+    "unit": "per bag",
+    "region": "Mara",
+    "market": "Mara Market",
+    "updated": "2026-09-22"
+  },
+  {
+    "id": 6,
+    "crop": "Beans",
+    "price": 2000,
+    "unit": "per kg",
+    "region": "Mbeya",
+    "market": "Mbeya Market",
+    "updated": "2026-09-27"
+  }
+]

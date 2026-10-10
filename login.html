@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | AgriSmart Tanzania</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="auth-container">
+
+        <div class="auth-box">
+
+            <div class="auth-logo">
+                🌾
+            </div>
+
+            <div class="lang-switch">
+                <button type="button" data-lang-btn="en">EN</button>
+                <button type="button" data-lang-btn="sw">SW</button>
+            </div>
+
+            <h1>AgriSmart Tanzania</h1>
+
+            <h2 data-i18n="login_heading">Welcome Back, Farmer!</h2>
+
+            <p class="auth-description" data-i18n="login_desc">
+                Login to access your agricultural dashboard
+                and farming services.
+            </p>
+
+            <form id="loginForm">
+
+                <!-- USERNAME -->
+
+                <label for="loginFarmName" data-i18n="label_farmname">
+                    Farm Name / Username
+                </label>
+
+                <input
+                    type="text"
+                    id="loginFarmName"
+                    placeholder="Enter farm name or username"
+                    required
+                >
+
+                <!-- PASSWORD -->
+
+                <label for="loginPassword" data-i18n="label_password">
+                    Password
+                </label>
+
+                <div class="password-wrapper">
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        id="toggleLoginPassword">
+                        👁️
+                    </button>
+
+                </div>
+
+                <!-- LOGIN BUTTON -->
+
+                <button type="submit" class="auth-button" data-i18n="btn_login">
+                    Login to Dashboard
+                </button>
+
+            </form>
+
+            <p id="loginMessage"></p>
+
+            <p class="auth-footer">
+                <a href="forgot-password.html" data-i18n="forgot_password_link">Forgot password?</a>
+            </p>
+
+            <p class="auth-footer">
+                <span data-i18n="no_account">Don't have an account?</span>
+                <a href="register.html" data-i18n="register_here">Register here</a>
+            </p>
+
+            <a href="index.html" class="back-home" data-i18n="back_home">
+                ← Back to Homepage
+            </a>
+
+        </div>
+
+    </div>
+
+    <script src="js/language.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

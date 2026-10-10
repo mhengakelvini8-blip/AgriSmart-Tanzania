@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login - AgriSmart Tanzania</title>
+
+    <link rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>
+            🌱 AgriSmart Tanzania
+        </h1>
+
+        <h2>
+            Admin Login
+        </h2>
+
+
+        <form id="adminLoginForm">
+
+            <label for="adminUsername">
+                Admin Username
+            </label>
+
+            <input
+                type="text"
+                id="adminUsername"
+                placeholder="Enter admin username"
+                required
+            >
+
+
+            <label for="adminPassword">
+                Admin Password
+            </label>
+
+            <input
+                type="password"
+                id="adminPassword"
+                placeholder="Enter admin password"
+                required
+            >
+
+
+            <button type="submit">
+                Login
+            </button>
+
+        </form>
+
+
+        <p id="message"></p>
+
+
+        <p>
+            <a href="forgot-password.html?role=admin">
+                Forgot password?
+            </a>
+        </p>
+
+        <p>
+            <a href="index.html">
+                ← Back to Main Website
+            </a>
+        </p>
+
+    </div>
+
+
+    <script src="js/config.js"></script>
+
+    <script>
+
+        // ================================
+        // ADMIN LOGIN
+        // ================================
+
+        const form =
+            document.getElementById(
+                "adminLoginForm"
+            );
+
+
+        const message =
+            document.getElementById(
+                "message"
+            );
+
+
+        form.addEventListener(
+            "submit",
+            async function(event) {
+
+                event.preventDefault();
+
+
+                const username =
+                    document.getElementById(
+                        "adminUsername"
+                    ).value.trim();
+
+
+                const password =
+                    document.getElementById(
+                        "adminPassword"
+                    ).value;
+
+
+                // Show loading message
+
+                message.textContent =
+                    "Logging in...";
+
+
+                try {
+
+                    const response =
+                        await fetch(
+                            API_BASE + "/api/admin/login",
+                            {
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                                body:
+                                    JSON.stringify({
+                                        username:
+                                            username,
+
+                                        password:
+                                            password
+                                    })
+                            }
+                        );
+
+
+                    const data =
+                        await response.json();
+
+
+                    // =========================
+                    // LOGIN SUCCESS
+                    // =========================
+
+                    if (response.ok) {
+
+                        localStorage.setItem(
+                            "adminLoggedIn",
+                            "true"
+                        );
+                        localStorage.setItem(
+                            "adminToken",
+                            data.token
+                        );
+
+
+                        localStorage.setItem(
+                            "adminUser",
+                            JSON.stringify(
+                                data.user
+                            )
+                        );
+
+
+                        message.textContent =
+                            "Login successful. Redirecting...";
+
+
+                        setTimeout(
+                            function() {
+
+                                window.location.href =
+                                    "admin-dashboard.html";
+
+                            },
+                            500
+                        );
+
+                    }
+
+
+                    // =========================
+                    // LOGIN FAILED
+                    // =========================
+
+                    else {
+
+                        message.textContent =
+                            data.message ||
+                            "Invalid username or password.";
+
+                    }
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Login error:",
+                        error
+                    );
+
+
+                    message.textContent =
+                        "Unable to connect to the server. Make sure the backend is running.";
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

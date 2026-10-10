@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crop Recommendations - AgriSmart Tanzania</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="main-header">
+
+        <div class="logo">
+            🌾 <span>AgriSmart</span>
+            <small>Tanzania</small>
+        </div>
+
+        <button class="menu-toggle" id="menuToggle">
+            ☰
+        </button>
+
+        <nav id="mainNav">
+
+            <a href="dashboard.html" data-i18n="nav_dashboard_icon">
+                🏠 Dashboard
+            </a>
+
+            <a href="soil-analysis.html" data-i18n="nav_soil_icon">
+                🌱 Soil Analysis
+            </a>
+
+            <a href="crop-recommendations.html" data-i18n="nav_crops_icon">
+                🌾 Crop Recommendations
+            </a>
+
+            <a href="market-prices.html" data-i18n="nav_market_icon">
+                💰 Market Prices
+            </a>
+
+            <a href="profile.html" data-i18n="nav_profile_icon">
+                👤 Profile
+            </a>
+
+            <span class="lang-switch">
+                <button type="button" data-lang-btn="en">EN</button>
+                <button type="button" data-lang-btn="sw">SW</button>
+            </span>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main class="dashboard-container">
+
+
+        <!-- INTRODUCTION -->
+
+        <section class="welcome-section">
+
+            <h1 data-i18n="crops_page_title">
+                🌾 Crop Recommendations
+            </h1>
+
+            <p data-i18n="crops_page_desc1">
+                Select your region to view common crop
+                recommendations for that area.
+            </p>
+
+            <p data-i18n="crops_page_desc2">
+                These recommendations provide general
+                agricultural guidance for farmers.
+            </p>
+
+        </section>
+
+
+
+        <!-- ================= REGION SELECTION ================= -->
+
+        <section class="dashboard-card">
+
+            <h2 data-i18n="crops_select_title">
+                📍 Select Your Region
+            </h2>
+
+            <p data-i18n="crops_select_desc">
+                Choose your region below to view recommended
+                crops.
+            </p>
+
+
+            <div class="auth-box"
+                 style="max-width: 700px; margin: 25px auto;">
+
+                <label for="recommendationRegion" data-i18n="dash_region_label">
+                    Region
+                </label>
+
+
+                <select id="recommendationRegion" data-region-select>
+                </select>
+
+
+                <button id="showCropsButton"
+                        type="button"
+                        data-i18n="btn_show_crops">
+
+                    🌾 Show Recommended Crops
+
+                </button>
+
+
+                <!-- RESULTS -->
+
+                <div id="cropResults"
+                     class="soil-result">
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= INFORMATION ================= -->
+
+        <section class="dashboard-card">
+
+            <h2 data-i18n="crops_about_title">
+                ℹ️ About Crop Recommendations
+            </h2>
+
+            <p data-i18n="crops_about_desc1">
+                AgriSmart provides general crop suggestions
+                based on the selected region.
+            </p>
+
+            <p data-i18n="crops_about_desc2">
+                Crop suitability can also depend on soil
+                characteristics, rainfall, temperature,
+                farming practices, seed varieties, and
+                other local conditions.
+            </p>
+
+            <p data-i18n="crops_about_desc3">
+                For important planting decisions, farmers
+                should also consult a qualified agricultural
+                extension officer.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="dashboard-footer">
+
+        <p data-i18n="footer_text">
+            © 2026 AgriSmart Tanzania.
+            All rights reserved.
+        </p>
+
+        <p data-i18n="footer_tagline">
+            Supporting farmers through technology 🌱
+        </p>
+
+    </footer>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/regions.js"></script>
+    <script src="data/crop-recommendations.js"></script>
+
+    <script src="js/language.js"></script>
+    <script src="js/script.js"></script>
+
+
+
+    <!-- ================= AUTO SELECT REGION ================= -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const recommendationRegion =
+                document.getElementById(
+                    "recommendationRegion"
+                );
+
+            const loggedInUser =
+                JSON.parse(
+                    localStorage.getItem("loggedInUser")
+                );
+
+            if (
+                recommendationRegion &&
+                loggedInUser
+            ) {
+
+                const farmerRegion =
+                    loggedInUser.region;
+
+                const regionExists =
+                    Array.from(
+                        recommendationRegion.options
+                    ).some(function (option) {
+
+                        return option.value === farmerRegion;
+
+                    });
+
+
+                if (regionExists) {
+
+                    recommendationRegion.value =
+                        farmerRegion;
+
+                }
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>
